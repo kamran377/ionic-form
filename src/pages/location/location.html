@@ -1,0 +1,75 @@
+<ion-header >
+  <ion-navbar color="primary">
+    <ion-title>Enter Location Manually</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form class="asam-form" [formGroup]="asam_form"  (ngSubmit)="onSubmit(asam_form.value)">
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<ion-label>Degree<span class='red'>*</span></ion-label>
+					<ion-input type="number" formControlName="degree"></ion-input>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validation_messages.degree">
+							<div class="error-message" *ngIf="asam_form.get('degree').hasError(validation.type) && (asam_form.get('degree').dirty || asam_form.get('degree').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-label>Minute <span class='red'>*</span></ion-label>
+					<ion-input type="number" formControlName="minute"></ion-input>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validation_messages.minute">
+							<div class="error-message" *ngIf="asam_form.get('minute').hasError(validation.type) && (asam_form.get('minute').dirty || asam_form.get('minute').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-label>Seconds <span class='red'>*</span></ion-label>
+					<ion-input type="number" formControlName="seconds"></ion-input>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validation_messages.seconds">
+							<div class="error-message" *ngIf="asam_form.get('seconds').hasError(validation.type) && (asam_form.get('seconds').dirty || asam_form.get('seconds').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<ion-label>Direction <span class='red'>*</span></ion-label>
+					<ion-select formControlName="direction">
+						<ion-option *ngFor="let dir of directions" value="{{dir}}">{{dir}}</ion-option>
+					</ion-select>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validation_messages.direction">
+							<div class="error-message" *ngIf="asam_form.get('direction').hasError(validation.type) && (asam_form.get('direction').dirty || asam_form.get('direction').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<button ion-button full color='light' (click)="closeModal()" type="button" >Cancel</button>	
+				</ion-col>
+				<ion-col>
+					<button ion-button full type="submit" [disabled]="!asam_form.valid">Submit</button>
+				</ion-col>
+				
+			</ion-row>
+		</ion-grid>
+	</form>
+</ion-content>

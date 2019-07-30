@@ -1,0 +1,70 @@
+page-home {
+	.heading {
+		background: #488aff;
+		color:#fff;
+	}
+	
+	ion-select {
+		max-width: 100% !important;
+	}
+	
+	.heading h4 { margin:0 !important}
+	
+	.col {
+		padding:1rem 2rem;
+		border:1px solid #ccc;
+		border-bottom:0px;
+	}
+	
+	.input,.select,ion-datetime {
+		border:1px solid #ccc !important;
+	}
+	
+	textarea.text-input {
+		display: block;
+		height: 10rem;
+	}
+	
+	.red { color: red}
+	
+	.row:last-child .col {
+		border-bottom:1px solid #ccc;
+	}
+	
+	.sub-heading {
+		background: #eee;
+	}
+	
+	.sub-heading h6 { margin:0 !important}
+	
+	.validation-errors
+      {
+        .error-message
+        {
+          color: color($colors, danger);
+          font-size: 12px;
+        	font-weight: 500;
+          line-height: 1.6rem;
+          position: relative;
+          padding-left: 22px;
+          margin-bottom: 10px;
+
+          &:first-child
+          {
+            margin-top: 10px;
+          }
+
+          &::before
+          {
+            font-family: "Ionicons";
+            content: "\f19f";
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            position: absolute;
+            left: 0px;
+          }
+        }
+      }
+}
